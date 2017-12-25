@@ -1,6 +1,3 @@
-import sys
-import os
-
 print("Advent of Code - DAY 1")
 
 ''' 
@@ -32,7 +29,7 @@ def breakCaptcha(payLoad):
 
 	if(int(numbers[0]) == int(repr(payLoad)[-1])) :
 		sum = sum + int(numbers[0])
-	print(sum)
+	print("And the Captcha is broken :: " sum)
 
 if __name__ == '__main__':
 	problem = int(open('problems/1_day.txt','r').read())
