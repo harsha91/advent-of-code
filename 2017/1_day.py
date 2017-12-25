@@ -17,11 +17,9 @@ For example:
 '''
 
 def breakCaptcha(payLoad):
-	sum = 0 
-	i = 0
-	prevNumber = 0
+	sum = i = prevNumber = 0
 	numbers = str(payLoad)
-
+	
 	for i in numbers:
 		if prevNumber == i:
 			sum = sum + int(i)
