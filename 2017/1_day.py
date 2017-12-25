@@ -19,7 +19,7 @@ For example:
 def breakCaptcha(payLoad):
 	sum = i = prevNumber = 0
 	numbers = str(payLoad)
-	
+
 	for i in numbers:
 		if prevNumber == i:
 			sum = sum + int(i)
@@ -27,7 +27,7 @@ def breakCaptcha(payLoad):
 
 	if(int(numbers[0]) == int(repr(payLoad)[-1])) :
 		sum = sum + int(numbers[0])
-	print("And the Captcha is broken :: " sum)
+	print("And the Captcha is broken :: " + str(sum))
 
 if __name__ == '__main__':
 	problem = int(open('problems/1_day.txt','r').read())
