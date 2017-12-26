@@ -17,7 +17,11 @@ In this example, the spreadsheet's checksum would be 8 + 4 + 6 = 18.
 '''
 
 def parseSpreadSheet(inputFilePath):
-	return csv.reader(open(inputFilePath, "rt"), delimiter='	')
+	data = []
+	spreadsheet = csv.reader(open(inputFilePath, "rt"), delimiter='	')
+	for row in spreadsheet:
+		data.append(row)
+	return data
 
 def calcCheckSum(data):
 	sum = 0
@@ -46,9 +50,9 @@ def calcCheckSum2(data):
 				if int(val) % int(val2) == 0 and val != val2:
 					sum = sum + int(val) / int(val2)
 					break
-	print sum
+	print("checksum2 is :: " + str(sum))
 
 if __name__ == '__main__':
 	data = parseSpreadSheet('problems/2_input.txt')
-	#calcCheckSum(data)
+	calcCheckSum(data)
 	calcCheckSum2(data)
