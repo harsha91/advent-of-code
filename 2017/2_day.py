@@ -16,14 +16,39 @@ The third row's difference is 6.
 In this example, the spreadsheet's checksum would be 8 + 4 + 6 = 18.
 '''
 
-def calcCheckSum(inputFilePath):
+def parseSpreadSheet(inputFilePath):
+	return csv.reader(open(inputFilePath, "rt"), delimiter='	')
+
+def calcCheckSum(data):
 	sum = 0
-	with open(inputFilePath, "rt") as spreadSheet:
-		data = csv.reader(spreadSheet, delimiter='	')
-		for row in data:
-			sum = sum + int(max(row, key=float)) - int(min(row, key=float))
+	for row in data:
+		sum = sum + int(max(row, key=float)) - int(min(row, key=float))
 
 	print("checksum is  :: " + str(sum))
 
+'''
+For example, given the following spreadsheet:
+
+5 9 2 8
+9 4 7 3
+3 8 6 5
+In the first row, the only two numbers that evenly divide are 8 and 2; the result of this division is 4.
+In the second row, the two numbers are 9 and 3; the result is 3.
+In the third row, the result is 2.
+In this example, the sum of the results would be 4 + 3 + 2 = 9.
+'''
+
+def calcCheckSum2(data):
+	sum = 0
+	for row in data:
+		for val in sorted(row, key=float, reverse=True):
+			for val2 in sorted(row, key=float, reverse=False):
+				if int(val) % int(val2) == 0 and val != val2:
+					sum = sum + int(val) / int(val2)
+					break
+	print sum
+
 if __name__ == '__main__':
-	calcCheckSum('problems/2_input.txt')
+	data = parseSpreadSheet('problems/2_input.txt')
+	#calcCheckSum(data)
+	calcCheckSum2(data)
