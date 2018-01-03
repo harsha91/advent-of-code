@@ -52,5 +52,5 @@ def captcha2(payLoad):
 
 if __name__ == '__main__':
 	problem = int(open('problems/1_day.txt','r').read())
-	#breakCaptcha(problem)
+	breakCaptcha(problem)
 	captcha2(problem)
