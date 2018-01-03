@@ -29,6 +29,28 @@ def breakCaptcha(payLoad):
 		sum = sum + int(numbers[0])
 	print("And the Captcha is broken :: " + str(sum))
 
+'''
+For example:
+
+1212 produces 6: the list contains 4 items, and all four digits match the digit 2 items ahead.
+1221 produces 0, because every comparison is between a 1 and a 2.
+123425 produces 4, because both 2s match each other, but no other digit has a match.
+123123 produces 12.
+12131415 produces 4.
+'''
+
+def captcha2(payLoad):
+	sum = 0
+	numbers = str(payLoad)
+	halfSize = int(len(numbers)/2)
+	firstHalf = numbers[:halfSize]
+	secondHalf = numbers[halfSize:]
+	for i in range(halfSize):
+		if firstHalf[i] == secondHalf[i]:
+			sum = sum + int(firstHalf[i]) * 2
+	print("captcha2 :: " + str(sum))
+
 if __name__ == '__main__':
 	problem = int(open('problems/1_day.txt','r').read())
-	breakCaptcha(problem)
+	#breakCaptcha(problem)
+	captcha2(problem)
