@@ -34,25 +34,25 @@ def createSpiral(input):
 	while i < input :
 		if i == 0:
 			spiral[i] = ([x, y])
-			i = i + 1
+			i +=  1
 		else:
 			for k in range(n + rM):
-				y = y + 1
+				y +=  1
 				spiral[i] = ([x, y])
-				i = i + 1
+				i +=  1
 			for k in range(n + uM):
-				x = x + 1
+				x +=  1
 				spiral[i] = ([x, y])
-				i = i + 1
+				i +=  1
 			for k in range(n + lM):
-				y = y - 1
+				y -= 1
 				spiral[i] = ([x, y])
-				i = i + 1
+				i +=  1
 			for j in range(n + dM):
-				x = x - 1
+				x -=  1
 				spiral[i] = ([x, y])
-				i = i + 1
-			n = n + 2	
+				i +=  1
+			n +=  2	
 	print("Input  is " + str(input) + " coordinates " + str(spiral[input-1]))
 	return spiral[input-1]
 
@@ -72,39 +72,39 @@ def createSpiral2(input):
 		while i < input :
 			if i == 0:
 				spiral[(x,y)]=1
-				i = i + 1
+				i +=  1
 			else:
 				for k in range(n + rM):
-					y = y + 1
+					y +=  1
 					spiral[(x,y)] = getNeighborsSum(spiral, x, y, i, input)
-					i = i + 1
+					i +=  1
 				for k in range(n + uM):
-					x = x + 1
+					x +=  1
 					spiral[(x,y)] = getNeighborsSum(spiral, x, y, i, input)
-					i = i + 1
+					i +=  1
 				for k in range(n + lM):
-					y = y - 1
+					y -= 1
 					spiral[(x,y)] = getNeighborsSum(spiral, x, y, i, input)
-					i = i + 1
+					i +=  1
 				for j in range(n + dM):
-					x = x - 1
+					x -= 1
 					spiral[(x,y)] = getNeighborsSum(spiral, x, y, i, input)
-					i = i + 1
-				n = n + 2	
+					i +=  1
+				n +=  2	
 	except ValueError as error:
 		print(str(error))
 
 
 def getNeighborsSum(spiral, x , y, index, input):
 	sum = 0
-	sum = sum + spiral.get((x+1, y), 0)
-	sum = sum + spiral.get((x-1, y), 0)
-	sum = sum + spiral.get((x, y+1), 0)
-	sum = sum + spiral.get((x, y-1), 0)
-	sum = sum + spiral.get((x+1, y+1), 0)
-	sum = sum + spiral.get((x+1, y-1), 0)
-	sum = sum + spiral.get((x-1, y-1), 0)
-	sum = sum + spiral.get((x-1, y+1), 0)
+	sum +=  spiral.get((x+1, y), 0)
+	sum +=  spiral.get((x-1, y), 0)
+	sum +=  spiral.get((x, y+1), 0)
+	sum +=  spiral.get((x, y-1), 0)
+	sum +=  spiral.get((x+1, y+1), 0)
+	sum +=  spiral.get((x+1, y-1), 0)
+	sum +=  spiral.get((x-1, y-1), 0)
+	sum +=  spiral.get((x-1, y+1), 0)
 	if sum > input:
 		raise ValueError('YAY the value is ' + str(sum))
 	return sum
