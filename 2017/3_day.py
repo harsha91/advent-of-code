@@ -21,14 +21,10 @@ Data from square 1024 must be carried 31 steps.
 '''
 
 def createSpiral(input):
-	i = x = y = 0;
+	i = x = y = n = 0
 	spiral = {}
 	# 1R, 1U, 2L, 2D one cycle
 	# inc of 2
-	# start with 6, inc of number is 8 
-	toNumber = 7 
-	incNumber = 8
-	n = 0
 	rM = uM = 1
 	lM = dM = 2
 	while i < input :
@@ -57,15 +53,11 @@ def createSpiral(input):
 	return spiral[input-1]
 
 def createSpiral2(input):
-	i = x = y = 0;
+	i = x = y = n = 0
 	size = int(math.ceil(math.sqrt(input)))
 	spiral = {}
 	# 1R, 1U, 2L, 2D one cycle
 	# inc of 2
-	# start with 6, inc of number is 8 
-	toNumber = 7 
-	incNumber = 8
-	n = 0
 	rM = uM = 1
 	lM = dM = 2
 	try:
