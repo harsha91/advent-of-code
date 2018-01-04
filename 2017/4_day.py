@@ -16,8 +16,7 @@ def getData(path):
 	return data
 
 def validPassPhrases(data):
-	i = 0
-	j = 0 
+	i = j = 0 
 	for phrase in data:
 		wordList = phrase.split(" ")
 		sortedWordList = [''.join(sorted(a)) for a in phrase.split(" ")]
